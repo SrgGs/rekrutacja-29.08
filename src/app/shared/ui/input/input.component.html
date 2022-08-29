@@ -1,0 +1,20 @@
+<mat-form-field
+  class="form-field"
+  appearance="outline"
+>
+  <mat-label>{{ label }}</mat-label>
+
+  <input
+    matInput
+    [formControlName]="controlName"
+    [placeholder]="placeholder"
+    [type]="type"
+    [errorStateMatcher]="matcher"
+  />
+  <mat-error
+    *ngIf="errorMessage !== null"
+    class="error"
+  >
+    {{ errorMessage }}
+  </mat-error>
+</mat-form-field>

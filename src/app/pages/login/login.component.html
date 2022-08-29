@@ -1,0 +1,29 @@
+<form
+
+[formGroup]="form"
+(ngSubmit)="submit()"
+>
+
+<app-input
+label="54"
+controlName="email"
+placeholder="5445"
+[lzErrorMessage]="{
+  required: 'Pole wymagane'
+}"
+>
+</app-input>
+
+<app-input
+label="54"
+controlName="password"
+placeholder="5445"
+[lzErrorMessage]="{
+  required: 'Pole wymagane'
+}"
+>
+</app-input>
+
+
+<button mat-raised-button color="accent">Zaloguj się</button>
+</form>
