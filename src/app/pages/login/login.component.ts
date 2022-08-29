@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { validateAllGroupFields } from '@shared/utils/validate-all-group-fields';
+import { LoginRequest } from './interfaces/login-request.interface';
+import { LoginApiService } from './services/login-api.service';
 import { LoginFormService } from './services/login-form.service';
 
 @Component({
@@ -12,7 +15,8 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
 
   constructor(
-    private loginFormService: LoginFormService
+    private loginFormService: LoginFormService,
+    private loginApi: LoginApiService
   ) { }
 
   ngOnInit(): void {
@@ -20,7 +24,12 @@ export class LoginComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.form)
+    if(!this.form.valid) {
+      validateAllGroupFields(this.form);
+      return;
+    }
+
+    this.loginApi.getLogin(this.form.value as LoginRequest).subscribe((e) => console.log(e))
   }
 
 }

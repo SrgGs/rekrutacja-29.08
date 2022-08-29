@@ -7,6 +7,7 @@ import { LoginFormService } from './services/login-form.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputModule } from '@shared/ui/input/input.module';
 import { MatButtonModule } from '@angular/material/button';
+import { LoginApiService } from './services/login-api.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule
   ],
   providers: [
-    LoginFormService
+    LoginFormService,
+    LoginApiService
   ]
 })
 export class LoginModule { }
